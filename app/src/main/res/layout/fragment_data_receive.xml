@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jp.mydns.diams.guidingdrone.Layout.DataReceiveFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/data_receive_proximityBeaconID_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="none"
+        android:textSize="32dp" />
+
+    <ListView
+        android:id="@+id/data_receive_detectedBeaconIDs_listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/data_receive_proximityBeaconID_textView"
+        android:layout_above="@+id/data_receive_isOnboardSDKDeviceAvailable_textview" />
+
+    <TextView
+        android:id="@+id/data_receive_isOnboardSDKDeviceAvailable_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="OSDK-Device : true / false"
+        android:textSize="16dp" />
+
+</RelativeLayout>
