@@ -30,7 +30,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="start"
-        android:layout_below="@+id/simple_osdk_config_button"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -46,7 +45,6 @@
         android:text="リモコン操作を完了する"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/simple_osdk_config_button"
         android:layout_toEndOf="@+id/simple_osdk_stop_button"
         android:id="@+id/simple_osdk_controlled_button" />
 
@@ -59,5 +57,21 @@
         android:id="@+id/simple_osdk_beacon_textView"
         android:textSize="32dp"
         android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/simple_osdk_centerBeaconStatus_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/simple_osdk_beacon_textView"
+        android:text="近づいているかどうか：" />
+
+    <TextView
+        android:id="@+id/simple_osdk_comeDir_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/simple_osdk_centerBeaconStatus_textView"
+        android:text="ビーコンがどちら側にあるか：" />
 
 </RelativeLayout>

@@ -1,10 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\daimon\\StudioProjects\\GuidingDrone\\dJISDKLIB\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\dialog_login.xml",
-        "source": "C:\\Users\\daimon\\StudioProjects\\GuidingDrone\\dJISDKLIB\\build\\intermediates\\bundles\\debug\\res\\layout\\dialog_login.xml"
+        "merged": "C:\\Users\\daimon\\Documents\\Android Studio\\GuidingDrone\\dJISDKLIB\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\log_dialog_view.xml",
+        "source": "C:\\Users\\daimon\\Documents\\Android Studio\\GuidingDrone\\dJISDKLIB\\build\\intermediates\\bundles\\debug\\res\\layout\\log_dialog_view.xml"
     },
     {
-        "merged": "C:\\Users\\daimon\\StudioProjects\\GuidingDrone\\dJISDKLIB\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\log_dialog_view.xml",
-        "source": "C:\\Users\\daimon\\StudioProjects\\GuidingDrone\\dJISDKLIB\\build\\intermediates\\bundles\\debug\\res\\layout\\log_dialog_view.xml"
+        "merged": "C:\\Users\\daimon\\Documents\\Android Studio\\GuidingDrone\\dJISDKLIB\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\dialog_login.xml",
+        "source": "C:\\Users\\daimon\\Documents\\Android Studio\\GuidingDrone\\dJISDKLIB\\build\\intermediates\\bundles\\debug\\res\\layout\\dialog_login.xml"
     }
 ]

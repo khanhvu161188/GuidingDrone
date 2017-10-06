@@ -34,11 +34,14 @@ public class SimpleOSDKFragment extends Fragment {
     private Button mReset_btn;
     private Button mReboot_btn;
     private TextView mBeacon_txt;
+    private TextView mCenterBeaconStatus_txt, mBeaconPostion_txt;
 
     private FlightController mFlightController;
 
     private boolean mResetOK;
     private String mBeaconID;
+    private boolean mCenterBeaconStatus;
+    private boolean mBeaconPostion;
     private DisplayUpdateHandler mDisplayUpdateHandler;
 
     public SimpleOSDKFragment() {
@@ -134,6 +137,8 @@ public class SimpleOSDKFragment extends Fragment {
         });
 
         mBeacon_txt = (TextView) view.findViewById(R.id.simple_osdk_beacon_textView);
+        mCenterBeaconStatus_txt = (TextView) view.findViewById(R.id.simple_osdk_centerBeaconStatus_textView);
+        mBeaconPostion_txt = (TextView) view.findViewById(R.id.simple_osdk_comeDir_textView);
 
         mResetOK = false;
         mBeaconID = "N/A";
@@ -195,6 +200,12 @@ public class SimpleOSDKFragment extends Fragment {
             } else if (data.substring(0, 5).equals("BA000") || data.equals("none")) {
                 mBeaconID = data;
                 mParent.showToast(data);
+            } else if (data.indexOf("center_beacon_status:") == 0) {
+                mCenterBeaconStatus = Boolean.parseBoolean(data.split(":")[1]);
+            } else if (data.indexOf("come_dir:") == 0) {
+                mBeaconPostion = !Boolean.parseBoolean(data.split(":")[1]);
+            } else if (data.indexOf("beacon_position:") == 0) {
+                mBeaconPostion = Boolean.parseBoolean(data.split(":")[1]);
             } else {
                 mParent.showToast(data);
             }
@@ -212,6 +223,18 @@ public class SimpleOSDKFragment extends Fragment {
             } else if (!mBeaconID.equals("N/A")) {
                 mBeacon_txt.setText(mBeaconID);
                 mBeacon_txt.setBackgroundColor(Color.GREEN);
+            }
+
+            if (mCenterBeaconStatus) {
+                mCenterBeaconStatus_txt.setText("近づいているかどうか：近づいている");
+            } else {
+                mCenterBeaconStatus_txt.setText("近づいているかどうか：遠ざかっている");
+            }
+
+            if (mBeaconPostion) {
+                mBeaconPostion_txt.setText("ビーコンがどちら側にあるか：右");
+            } else {
+                mBeaconPostion_txt.setText("ビーコンがどちら側にあるか：左");
             }
 
             if (mDisplayUpdateHandler != null) {
