@@ -157,9 +157,9 @@ public class DoubleThresholdFragment extends Fragment {
 
     private void fragmentChange() {
         FragmentTransaction transaction = mParent.getSupportFragmentManager().beginTransaction();
-        SimpleOSDKFragment nextFragment = new SimpleOSDKFragment();
-        transaction.replace(R.id.fragment_container, nextFragment, SimpleOSDKFragment.class.getName());
-        transaction.addToBackStack(SimpleOSDKFragment.class.getName());
+        MarginInputFragment nextFragment = new MarginInputFragment();
+        transaction.replace(R.id.fragment_container, nextFragment, MarginInputFragment.class.getName());
+        transaction.addToBackStack(MarginInputFragment.class.getName());
         transaction.commit();
     }
 }

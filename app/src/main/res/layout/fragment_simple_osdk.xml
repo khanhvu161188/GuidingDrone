@@ -74,4 +74,12 @@
         android:layout_below="@+id/simple_osdk_centerBeaconStatus_textView"
         android:text="ビーコンがどちら側にあるか：" />
 
+    <TextView
+        android:id="@+id/simple_osdk_scalar_rssi_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/simple_osdk_comeDir_textView"
+        android:text="ビーコンの変位量：" />
+
 </RelativeLayout>

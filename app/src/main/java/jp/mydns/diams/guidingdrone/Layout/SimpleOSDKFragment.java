@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 
 import dji.common.error.DJIError;
@@ -34,7 +35,7 @@ public class SimpleOSDKFragment extends Fragment {
     private Button mReset_btn;
     private Button mReboot_btn;
     private TextView mBeacon_txt;
-    private TextView mCenterBeaconStatus_txt, mBeaconPostion_txt;
+    private TextView mCenterBeaconStatus_txt, mBeaconPostion_txt, mScalarRssi_txt;
 
     private FlightController mFlightController;
 
@@ -42,6 +43,7 @@ public class SimpleOSDKFragment extends Fragment {
     private String mBeaconID;
     private boolean mCenterBeaconStatus;
     private boolean mBeaconPostion;
+    private double[] mScalarRssi;
     private DisplayUpdateHandler mDisplayUpdateHandler;
 
     public SimpleOSDKFragment() {
@@ -139,6 +141,7 @@ public class SimpleOSDKFragment extends Fragment {
         mBeacon_txt = (TextView) view.findViewById(R.id.simple_osdk_beacon_textView);
         mCenterBeaconStatus_txt = (TextView) view.findViewById(R.id.simple_osdk_centerBeaconStatus_textView);
         mBeaconPostion_txt = (TextView) view.findViewById(R.id.simple_osdk_comeDir_textView);
+        mScalarRssi_txt = (TextView) view.findViewById(R.id.simple_osdk_scalar_rssi_textView);
 
         mResetOK = false;
         mBeaconID = "N/A";
@@ -206,6 +209,12 @@ public class SimpleOSDKFragment extends Fragment {
                 mBeaconPostion = !Boolean.parseBoolean(data.split(":")[1]);
             } else if (data.indexOf("beacon_position:") == 0) {
                 mBeaconPostion = Boolean.parseBoolean(data.split(":")[1]);
+            } else if (data.indexOf("sclar_rssi:") == 0) {
+                String[] scalarRssi_str = data.split(":")[1].split(",");
+                mScalarRssi = new double[scalarRssi_str.length];
+                for (int i = 0; i < scalarRssi_str.length; i++) {
+                    mScalarRssi[i] = Double.parseDouble(scalarRssi_str[i]);
+                }
             } else {
                 mParent.showToast(data);
             }
@@ -235,6 +244,14 @@ public class SimpleOSDKFragment extends Fragment {
                 mBeaconPostion_txt.setText("ビーコンがどちら側にあるか：右");
             } else {
                 mBeaconPostion_txt.setText("ビーコンがどちら側にあるか：左");
+            }
+
+            if (mScalarRssi != null) {
+                String scalarRssi_str = "ビーコンの変位量：\n";
+                for (int i = 0; i < mScalarRssi.length; i++) {
+                    scalarRssi_str += String.format("ビーコン%d：%f\n", i + 1, mScalarRssi[i]);
+                }
+                mScalarRssi_txt.setText(scalarRssi_str);
             }
 
             if (mDisplayUpdateHandler != null) {

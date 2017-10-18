@@ -61,17 +61,17 @@
         android:gravity="center_vertical" />
 
     <EditText
+        android:id="@+id/double_threshold_threshold1_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="-70"
-        android:ems="10"
         android:layout_below="@+id/double_threshold_average_textView"
-        android:id="@+id/double_threshold_threshold1_editText"
-        android:textSize="18sp"
-        android:gravity="right|center_vertical"
+        android:layout_toEndOf="@+id/double_threshold_threshold1_textView"
         android:layout_toStartOf="@+id/double_threshold_dbm2_textView"
-        android:layout_toEndOf="@+id/double_threshold_threshold1_textView" />
+        android:ems="10"
+        android:gravity="right|center_vertical"
+        android:inputType="textPersonName"
+        android:text="-63"
+        android:textSize="18sp" />
 
     <TextView
         android:text="［dBm］"
@@ -96,17 +96,17 @@
         android:gravity="center_vertical" />
 
     <EditText
+        android:id="@+id/double_threshold_threshold2_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="-70"
-        android:ems="10"
         android:layout_below="@+id/double_threshold_threshold1_editText"
-        android:id="@+id/double_threshold_threshold2_editText"
-        android:textSize="18sp"
-        android:layout_toStartOf="@+id/double_threshold_dbm2_textView"
         android:layout_toEndOf="@id/double_threshold_threshold2_textView"
-        android:gravity="right|center_vertical" />
+        android:layout_toStartOf="@+id/double_threshold_dbm2_textView"
+        android:ems="10"
+        android:gravity="right|center_vertical"
+        android:inputType="textPersonName"
+        android:text="-63"
+        android:textSize="18sp" />
 
     <TextView
         android:text="［dBm］"
@@ -174,17 +174,17 @@
         android:gravity="center_vertical" />
 
     <EditText
+        android:id="@+id/double_threshold_threshold1_2_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="-65"
-        android:ems="10"
         android:layout_below="@+id/double_threshold_average2_textView"
-        android:id="@+id/double_threshold_threshold1_2_editText"
-        android:textSize="18sp"
-        android:gravity="right|center_vertical"
+        android:layout_toEndOf="@id/double_threshold_threshold1_2_textView"
         android:layout_toStartOf="@+id/double_threshold_dbm3_textView"
-        android:layout_toEndOf="@id/double_threshold_threshold1_2_textView"/>
+        android:ems="10"
+        android:gravity="right|center_vertical"
+        android:inputType="textPersonName"
+        android:text="-63"
+        android:textSize="18sp" />
 
     <TextView
         android:text="［dBm］"
@@ -209,17 +209,17 @@
         android:gravity="center_vertical" />
 
     <EditText
+        android:id="@+id/double_threshold_threshold2_2_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="-65"
-        android:ems="10"
         android:layout_below="@+id/double_threshold_threshold1_2_editText"
-        android:id="@+id/double_threshold_threshold2_2_editText"
-        android:textSize="18sp"
-        android:gravity="right|center_vertical"
+        android:layout_toEndOf="@id/double_threshold_threshold2_2_textView"
         android:layout_toStartOf="@+id/double_threshold_dbm3_textView"
-        android:layout_toEndOf="@id/double_threshold_threshold2_2_textView"/>
+        android:ems="10"
+        android:gravity="right|center_vertical"
+        android:inputType="textPersonName"
+        android:text="-63"
+        android:textSize="18sp" />
 
     <TextView
         android:text="［dBm］"

@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jp.mydns.diams.guidingdrone.Layout.MarginInputFragment">
+
+    <TextView
+        android:id="@+id/margin_input_margin_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/margin_input_margin_editText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:text="接近判定のマージン："
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/margin_input_margin_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:gravity="right"
+        android:inputType="textPersonName"
+        android:text="0"
+        android:layout_toStartOf="@+id/margin_input_dbm_textView"
+        android:layout_toEndOf="@id/margin_input_margin_textView"/>
+
+    <TextView
+        android:id="@+id/margin_input_dbm_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/margin_input_margin_editText"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:text="［dBm］" />
+
+    <Button
+        android:id="@+id/margin_input_transmit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/margin_input_margin_textView"
+        android:text="マージンの送信" />
+</RelativeLayout>
