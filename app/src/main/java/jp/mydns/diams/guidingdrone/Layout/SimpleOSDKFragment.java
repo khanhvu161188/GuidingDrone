@@ -211,11 +211,14 @@ public class SimpleOSDKFragment extends Fragment {
                 mBeaconPostion = Boolean.parseBoolean(data.split(":")[1]);
             } else if (data.indexOf("sclar_rssi:") == 0) {
                 String[] scalarRssi_str = data.split(":")[1].split(",");
-                if (data.split(":")[1] != "0,0,0,0,0") {
-                    mScalarRssi = new double[scalarRssi_str.length];
-                    for (int i = 0; i < scalarRssi_str.length; i++) {
-                        mScalarRssi[i] = Double.parseDouble(scalarRssi_str[i]);
-                    }
+                double[] scalar_rssi = new double[scalarRssi_str.length];
+                boolean check = true;
+                for (int i = 0; i < scalarRssi_str.length; i++) {
+                    scalar_rssi[i] = Double.parseDouble(scalarRssi_str[i]);
+                    check ^= Math.abs(scalar_rssi[i]) < 0.00001;
+                }
+                if (!check) {
+                    mScalarRssi = scalar_rssi;
                 }
             } else {
                 mParent.showToast(data);
