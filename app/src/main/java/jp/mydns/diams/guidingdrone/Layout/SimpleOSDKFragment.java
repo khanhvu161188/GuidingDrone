@@ -215,7 +215,7 @@ public class SimpleOSDKFragment extends Fragment {
                 boolean check = true;
                 for (int i = 0; i < scalarRssi_str.length; i++) {
                     scalar_rssi[i] = Double.parseDouble(scalarRssi_str[i]);
-                    check ^= Math.abs(scalar_rssi[i]) < 0.00001;
+                    check &= Math.abs(scalar_rssi[i]) < 0.00001;
                 }
                 if (!check) {
                     mScalarRssi = scalar_rssi;
