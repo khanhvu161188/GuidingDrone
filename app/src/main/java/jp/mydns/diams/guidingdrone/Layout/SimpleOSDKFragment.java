@@ -200,7 +200,7 @@ public class SimpleOSDKFragment extends Fragment {
             if (data.equals("landing")) {
                 mResetOK = true;
                 mParent.showToast(data);
-            } else if (data.substring(0, 5).equals("BA000") || data.equals("none")) {
+            } else if (data.substring(0, 5).equals("BA000")) {
                 mBeaconID = data;
                 mParent.showToast(data);
             } else if (data.indexOf("center_beacon_status:") == 0) {
@@ -211,9 +211,11 @@ public class SimpleOSDKFragment extends Fragment {
                 mBeaconPostion = Boolean.parseBoolean(data.split(":")[1]);
             } else if (data.indexOf("sclar_rssi:") == 0) {
                 String[] scalarRssi_str = data.split(":")[1].split(",");
-                mScalarRssi = new double[scalarRssi_str.length];
-                for (int i = 0; i < scalarRssi_str.length; i++) {
-                    mScalarRssi[i] = Double.parseDouble(scalarRssi_str[i]);
+                if (data.split(":")[1] != "0,0,0,0,0") {
+                    mScalarRssi = new double[scalarRssi_str.length];
+                    for (int i = 0; i < scalarRssi_str.length; i++) {
+                        mScalarRssi[i] = Double.parseDouble(scalarRssi_str[i]);
+                    }
                 }
             } else {
                 mParent.showToast(data);
@@ -232,6 +234,7 @@ public class SimpleOSDKFragment extends Fragment {
             } else if (!mBeaconID.equals("N/A")) {
                 mBeacon_txt.setText(mBeaconID);
                 mBeacon_txt.setBackgroundColor(Color.GREEN);
+                mBeaconID = "none";
             }
 
             if (mCenterBeaconStatus) {

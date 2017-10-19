@@ -12,7 +12,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:gravity="center_vertical"
-        android:text="接近判定のマージン："
+        android:text="接近判定のマージン弱："
         android:textSize="16dp" />
 
     <EditText
@@ -20,12 +20,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/margin_input_margin_textView"
+        android:layout_toStartOf="@+id/margin_input_dbm_textView"
         android:ems="10"
         android:gravity="right"
         android:inputType="textPersonName"
-        android:text="0"
-        android:layout_toStartOf="@+id/margin_input_dbm_textView"
-        android:layout_toEndOf="@id/margin_input_margin_textView"/>
+        android:text="3" />
 
     <TextView
         android:id="@+id/margin_input_dbm_textView"
@@ -35,7 +35,41 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:gravity="center_vertical"
-        android:text="［dBm］" />
+        android:text="［dBm］"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/margin_input_margin_strong_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/margin_input_margin_strong_editText"
+        android:layout_below="@id/margin_input_margin_textView"
+        android:gravity="center_vertical"
+        android:text="近接判定のマージン強："
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/margin_input_margin_strong_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/margin_input_margin_textView"
+        android:layout_toEndOf="@id/margin_input_margin_strong_textView"
+        android:layout_toStartOf="@+id/margin_input_dbm2_textView"
+        android:ems="10"
+        android:gravity="right"
+        android:inputType="textPersonName"
+        android:text="5" />
+
+    <TextView
+        android:id="@+id/margin_input_dbm2_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/margin_input_margin_strong_editText"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/margin_input_margin_textView"
+        android:gravity="center_vertical"
+        android:text="［dBm］"
+        android:textSize="16dp" />
 
     <Button
         android:id="@+id/margin_input_transmit_button"
@@ -43,6 +77,58 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/margin_input_margin_textView"
+        android:layout_below="@+id/margin_input_margin_strong_textView"
         android:text="マージンの送信" />
+
+    <TextView
+        android:id="@+id/margin_input_turn_count_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/margin_input_turn_count_editText"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/margin_input_transmit_button"
+        android:gravity="center_vertical"
+        android:text="旋回回数制限："
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/margin_input_turn_count_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/margin_input_transmit_button"
+        android:layout_toEndOf="@+id/margin_input_turn_count_textView"
+        android:layout_toStartOf="@+id/margin_input_turned_textView"
+        android:ems="10"
+        android:gravity="right"
+        android:inputType="number"
+        android:text="5" />
+
+    <TextView
+        android:id="@+id/margin_input_turned_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/margin_input_turn_count_editText"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/margin_input_transmit_button"
+        android:gravity="center_vertical"
+        android:text="［回］"
+        android:textSize="16dp" />
+
+    <Button
+        android:id="@+id/margin_input_turn_count_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/margin_input_turn_count_textView"
+        android:text="旋回回数制限の送信" />
+
+    <Button
+        android:id="@+id/margin_input_next_page_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/margin_input_turn_count_button"
+        android:text="次へ" />
 </RelativeLayout>

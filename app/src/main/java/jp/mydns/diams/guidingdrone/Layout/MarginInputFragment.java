@@ -26,10 +26,18 @@ public class MarginInputFragment extends Fragment {
     private View view;
     private MainActivity mParent;
 
-    private EditText mMargin_edt;
+    private EditText mMarginWeek_edt, mMarginStrong_edt;
     private Button mTransmit_btn;
 
+    private EditText mTurnCount_edt;
+    private Button mTurnCount_btn;
+
+    private Button mNextPage_btn;
+
     private FlightController mFlightController;
+
+    private boolean mTransmit_bl;
+    private boolean mTurnCount_bl;
 
     public MarginInputFragment() {
         // Required empty public constructor
@@ -53,14 +61,15 @@ public class MarginInputFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_margin_input, container, false);
         mParent = (MainActivity) getActivity();
 
-        mMargin_edt = (EditText) view.findViewById(R.id.margin_input_margin_editText);
+        mMarginWeek_edt = (EditText) view.findViewById(R.id.margin_input_margin_editText);
+        mMarginStrong_edt = (EditText) view.findViewById(R.id.margin_input_margin_strong_editText);
 
         mTransmit_btn = (Button) view.findViewById(R.id.margin_input_transmit_button);
         mTransmit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mFlightController != null) {
-                    String sendData_str = "margin:" + mMargin_edt.getText().toString() + "\0";
+                    String sendData_str = "margin:" + mMarginWeek_edt.getText().toString() + ":" + mMarginStrong_edt.getText().toString() + "\0";
 
                     mFlightController.sendDataToOnboardSDKDevice(sendData_str.getBytes(), new CommonCallbacks.CompletionCallback() {
                         @Override
@@ -68,11 +77,44 @@ public class MarginInputFragment extends Fragment {
 
                         }
                     });
+                    mTransmit_btn.setEnabled(false);
+                    mTransmit_bl = true;
+                }
+            }
+        });
 
+        mTurnCount_edt = (EditText) view.findViewById(R.id.margin_input_turn_count_editText);
+        mTurnCount_btn = (Button) view.findViewById(R.id.margin_input_turn_count_button);
+        mTurnCount_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mFlightController != null) {
+                    String sendData_str = "turnCnt:" + mTurnCount_edt.getText().toString() + "\0";
+
+                    mFlightController.sendDataToOnboardSDKDevice(sendData_str.getBytes(), new CommonCallbacks.CompletionCallback() {
+                        @Override
+                        public void onResult(DJIError djiError) {
+
+                        }
+                    });
+                    mTurnCount_btn.setEnabled(false);
+                    mTurnCount_bl = true;
+                }
+            }
+        });
+
+        mNextPage_btn = (Button) view.findViewById(R.id.margin_input_next_page_button);
+        mNextPage_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mTransmit_bl && mTurnCount_bl) {
                     fragmentChange();
                 }
             }
         });
+
+        mTransmit_bl = false;
+        mTurnCount_bl = false;
 
         initFlightController();
 
