@@ -233,7 +233,7 @@ public class SimpleOSDKFragment extends Fragment {
 
             if (mBeaconID.equals("none")) {
                 mBeacon_txt.setText(mBeaconID);
-                mBeacon_txt.setBackgroundColor(Color.RED);
+                mBeacon_txt.setBackgroundColor(Color.WHITE);
             } else if (!mBeaconID.equals("N/A")) {
                 mBeacon_txt.setText(mBeaconID);
                 mBeacon_txt.setBackgroundColor(Color.GREEN);
