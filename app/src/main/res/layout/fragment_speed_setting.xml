@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jp.mydns.diams.guidingdrone.Layout.SpeedSettingFragment">
+
+
+    <RadioGroup
+        android:id="@+id/speed_setting_radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <RadioButton
+        android:id="@+id/speed_setting_fast_radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="速い速度" />
+
+    <RadioButton
+        android:id="@+id/speed_setting_slow_radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/speed_setting_fast_radioButton"
+        android:text="遅い速度" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/speed_setting_setting_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/speed_setting_radioGroup"
+        android:text="速度を設定" />
+</RelativeLayout>

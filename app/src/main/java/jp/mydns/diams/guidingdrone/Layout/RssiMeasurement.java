@@ -33,6 +33,7 @@ public class RssiMeasurement extends Fragment {
 
     private Button mTakeOff_btn, mStop_btn;
     private TextView mRssi_txt, mFileName_txt;
+    private Button mCheck_btn;
     private TextView mIsConneted_txt;
 
     private FlightController mFlightController;
@@ -94,6 +95,21 @@ public class RssiMeasurement extends Fragment {
 
         mRssi_txt = (TextView) view.findViewById(R.id.rssi_measurement_rssi_textView);
         mFileName_txt = (TextView) view.findViewById(R.id.rssi_measurement_filename_textView);
+
+        mCheck_btn = (Button) view.findViewById(R.id.rssi_measurement_check_button);
+        mCheck_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mFlightController != null) {
+                    mFlightController.sendDataToOnboardSDKDevice("check\0".getBytes(), new CommonCallbacks.CompletionCallback() {
+                        @Override
+                        public void onResult(DJIError djiError) {
+                        }
+                    });
+                }
+            }
+        });
+
         mIsConneted_txt = (TextView) view.findViewById(R.id.rssi_measurement_isconnected_textView);
 
         mRssi = new double[5];
