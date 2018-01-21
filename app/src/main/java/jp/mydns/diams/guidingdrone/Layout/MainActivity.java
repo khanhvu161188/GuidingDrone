@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.add(R.id.fragment_container, new SpeedSettingFragment(), SpeedSettingFragment.class.getName());
+            transaction.add(R.id.fragment_container, new DoubleThresholdFragment(), DoubleThresholdFragment.class.getName());
             transaction.commit();
         }
     }
